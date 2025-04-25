@@ -16,9 +16,6 @@ void main() async {
 
   await Hive.initFlutter();
 
-  Box box = await Hive.openBox('catbreed');
-  await box.clear();
-
   PersistenceRepository repository = PersistenceRepository();
   await repository.initRepository();
 

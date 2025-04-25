@@ -1,7 +1,4 @@
-import 'package:catbreeds/Application/Service/CatBreedService.dart';
-import 'package:catbreeds/Application/Stores/CatBreed/CatBreedStore.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -11,20 +8,11 @@ class Splash extends StatefulWidget {
 }
 
 class SplashState extends State<Splash> with SingleTickerProviderStateMixin {
-  final serviceCatBreed = GetIt.instance<CatBreedService>();
-  final storeCatBreed = GetIt.instance<CatBreedStore>();
-
   @override
   void initState() {
     super.initState();
 
-    Future.delayed(const Duration(seconds: 2), () async {
-      var catBreeds = await serviceCatBreed.getCatBreedDio();
-      if (catBreeds != null) {
-        await serviceCatBreed.saveCatBreedHive(catBreeds);
-      }
-      await storeCatBreed.getCatBreed();
-
+    Future.delayed(const Duration(seconds: 4), () async {
       Navigator.pushReplacementNamed(context, '/home');
     });
   }

@@ -1,7 +1,9 @@
+import 'package:catbreeds/Application/Stores/CatBreed/CatBreedStore.dart';
 import 'package:flutter/material.dart';
 
 class HomeHeader extends StatelessWidget {
-  const HomeHeader({super.key});
+  final CatBreedStore store;
+  const HomeHeader({super.key, required this.store});
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +29,9 @@ class HomeHeader extends StatelessWidget {
                     color: Colors.grey.shade200,
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: const TextField(
-                    decoration: InputDecoration(
+                  child: TextField(
+                    onChanged: store.setSearchTerm,
+                    decoration: const InputDecoration(
                       hintText: 'Search cat breed',
                       border: InputBorder.none,
                       icon: Icon(Icons.search),
@@ -44,10 +47,7 @@ class HomeHeader extends StatelessWidget {
                   color: Colors.black,
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: const Icon(
-                  Icons.search, 
-                  color: Colors.white,
-                ),
+                child: const Icon(Icons.search, color: Colors.white),
               ),
             ],
           ),

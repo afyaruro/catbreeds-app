@@ -109,10 +109,6 @@ class CatBreedRepository implements ICatBreedRepository {
         box.values.toList(),
       );
 
-      for (var e in catBreeds) {
-        print("image to hive: ${e.image}");
-      }
-
       return catBreeds;
     } catch (e) {
       return null;
